@@ -10,6 +10,11 @@ module.exports = merge(common, {
   },
   mode: 'development',
   devtool: 'inline-source-map',
+  // devServer: {
+  //   watchContentBase: true,
+  //   contentBase: path.resolve(__dirname, "dist"),
+  //   open: true,
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'webpack Demo',
@@ -19,14 +24,17 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(scss|css)$/, // check for any css or scss files
+        test: /\.css$/i, // check for any css or scss files
         use: [
           // Injects `style` tag into the DOM
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 }, // not sure why this is necessary but the internet says to use it so.
+          },
+          // postcss
+          'postcss-loader',
         ],
       },
     ],

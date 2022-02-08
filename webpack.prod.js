@@ -23,14 +23,18 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(scss|css)$/, // check for any css or scss files
+        test: /\.css$/i, // check for any css or scss files
         use: [
           // Extracts CSS from the JS into separate files
           MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
+          // {
+          //   loader: 'css-loader',
+          //   options: { importLoaders: 1 }, // not sure why this is necessary but the internet says to use it so.
+          // },
+          'css-loader',
+          // postcss
+          'postcss-loader',
         ],
       },
     ],
