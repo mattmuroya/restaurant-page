@@ -10,11 +10,10 @@ module.exports = merge(common, {
   },
   mode: 'development',
   devtool: 'inline-source-map',
-  // devServer: {
-  //   watchContentBase: true,
-  //   contentBase: path.resolve(__dirname, "dist"),
-  //   open: true,
-  // },
+  devServer: {
+    static: './dist',
+    open: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'webpack Demo',
