@@ -9,6 +9,7 @@ module.exports = merge(common, {
     filename: 'main-[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: 'img/[hash][ext]',
   },
   mode: 'production',
   plugins: [
@@ -36,6 +37,10 @@ module.exports = merge(common, {
           // postcss
           'postcss-loader',
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

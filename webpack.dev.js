@@ -7,6 +7,7 @@ module.exports = merge(common, {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'img/[hash][ext]',
   },
   mode: 'development',
   devtool: 'inline-source-map',
@@ -35,6 +36,10 @@ module.exports = merge(common, {
           // postcss
           'postcss-loader',
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

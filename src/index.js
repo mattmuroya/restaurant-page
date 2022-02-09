@@ -1,11 +1,8 @@
-// import './reset.css';
 import './style.css';
+import Stew from './img/stew.jpeg'
 
-// const body = document.querySelector('body');
+const card = document.getElementById('stew');
+const myImage = new Image();
+myImage.src = Stew;
 
-// const content = document.createElement('div');
-// content.textContent = 'hello world';
-// content.id = 'content';
-// content.classList.add('container', 'bg-green-400', 'mx-auto', 'bg-green-400', 'my-10', 'p-10', 'rounded-md');
-
-// body.appendChild(content);
+card.appendChild(myImage);
