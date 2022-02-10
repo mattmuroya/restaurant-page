@@ -1,0 +1,1 @@
+(()=>{"use strict";const t=document.getElementById("menu-btn"),e=document.getElementById("sidebar");t.addEventListener("click",(()=>{e.classList.toggle("-translate-x-full"),t.classList.toggle("bg-gray-700")}))})();
